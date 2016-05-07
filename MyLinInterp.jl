@@ -26,8 +26,8 @@ immutable LinearInterpolation
   vals
 end
 
-function Base.call(a::LinearInterpolation, x)
-  function f(x)
+function call(a::LinearInterpolation, xs)
+  map(xs) do x
     i = searchsortedlast(a.grid, x)
     a.grid[1] <= x <= a.grid[end] || throw(DomainError()) # throw an error if input x is out of domain
 
@@ -37,7 +37,6 @@ function Base.call(a::LinearInterpolation, x)
       return a.vals[i] + (a.vals[i+1] - a.vals[i]) / (a.grid[i+1] - a.grid[i]) * (x - a.grid[i])
     end
   end
-  return map(f, x)
 end
 
 end
