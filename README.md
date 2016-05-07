@@ -7,6 +7,11 @@ julia code for interpolation
 
 include("MyLinInterp.jl")
 
-f = MyLinInterp.LinearInterpolation(grids, vals)
+grid = 1:10
+vals = grid .^2 - grid
 
-f(0.2)    #for example
+f = MyLinInterp.LinearInterpolation(grid, vals)
+
+f(1.2)    # => 0.3999...
+
+f([2, 4, 7])  # => [2, 12, 42]
