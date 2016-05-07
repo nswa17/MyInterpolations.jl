@@ -2,6 +2,8 @@
 julia code for interpolation
 
 #usage
-include("MyLinInterp.jl")
-f = MyLinInterp(grids, vals)
-f(0.2)    #for example
+```include("MyLinInterp.jl")
+
+```f = MyLinInterp.LinearInterpolation(grids, vals)
+
+```f(0.2)    #for example
