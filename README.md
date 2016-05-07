@@ -3,10 +3,14 @@ julia code for interpolation
 
 #usage
 
-MyLinInterp : module
+MyLinInterp
+    : module
 
-MyLinInterp.LinearInterpolation : (grid, vals) -> callable immutable object
-MyLinInterp.LinearInterpolation(grid, vals) : x(of scalar, vector or matrix) -> value by interpolation(of scalar, vector or matrix)
+MyLinInterp.LinearInterpolation
+    : (grid, vals) -> callable immutable object
+
+MyLinInterp.LinearInterpolation(grid, vals)
+    : x(of scalar, vector or matrix) -> value by interpolation(of scalar, vector or matrix)
 
 #an example
 
