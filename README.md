@@ -19,11 +19,13 @@ MyLinInterp.LinearInterpolation(grid, vals)
 include("MyLinInterp.jl")
 
 grid = 1:10
-vals = grid .^2 - grid
+vals = log(grid)
 
 f = MyLinInterp.LinearInterpolation(grid, vals)
 
-f(1.2)    # => 0.3999...
+f(1.2)  # => 0.1386...
 
-f([2, 4, 7])  # => [2, 12, 42]
+f([2, 4, 7])  # => [0.138629, 0.207944, 0.2772592]
+
+f([1.5 2.5; 3.5 4.5]) # => [0.346574 0.89588; 1.24245 1.49787]
 ```

@@ -2,16 +2,16 @@ module MyLinInterp
 
   export LinearInterpolation
 
-  immutable LinearInterpolation #Inplementation as a type class
-    grid
-    vals
+  immutable LinearInterpolation # Inplementation as a type class
+    grid::Array
+    vals::Array
   end
 
   function call(a::LinearInterpolation, xs)
     map(xs) do x
       a.grid[1] <= x <= a.grid[end] || throw(DomainError()) # throw an error if input x is out of domain
 
-      i = searchsortedlast(a.grid, x)# find the first index i in grid where grid[i] >= x
+      i = searchsortedlast(a.grid, x) # find the first index i in grid where grid[i] >= x
       if i == length(a.grid)
         return a.vals[end]
       else
