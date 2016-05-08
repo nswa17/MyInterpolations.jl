@@ -1,27 +1,8 @@
 module MyLinInterp
 
-  export LinearInterpolation, get_interpolation
-  """
-  Inplementation as a higher order function
-  """
-  function get_interpolation(grid, vals)
-    function f(x)
-      grid[1] <= x <= grid[end] || throw(DomainError()) # throw an error if input x is out of domain
-      i = searchsortedlast(grid, x) # find the first index i in grid where grid[i] >= x
-      if i == length(grid)
-        return vals[end]
-      else
-        return vals[i] + (vals[i+1] - vals[i]) / (grid[i+1] - grid[i]) * (x - grid[i])
-      end
-    end
-    return f
-  end
+  export LinearInterpolation
 
-  """
-  Inplementation as a type class
-  """
-
-  immutable LinearInterpolation
+  immutable LinearInterpolation #Inplementation as a type class
     grid
     vals
   end
