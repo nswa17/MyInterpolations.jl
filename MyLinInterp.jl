@@ -9,7 +9,12 @@ module MyLinInterp
 
   function call(a::LinearInterpolation, xs)
     map(xs) do x
-      a.grid[1] <= x <= a.grid[end] || throw(DomainError()) # throw an error if input x is out of domain
+      #a.grid[1] <= x <= a.grid[end] || throw(DomainError()) # throw an error if input x is out of domain
+        if x < a.grid[1]
+            return a.vals[1]
+        elseif x > a.grid[end]
+            return a.vals[end]
+        end
 
       i = searchsortedlast(a.grid, x) # find the first index i in grid where grid[i] >= x
       if i == length(a.grid)
