@@ -2,7 +2,7 @@ module MyInterpolations
 
   export LinearInterpolation
 
-  immutable LinearInterpolation # Inplementation as a type class
+  struct LinearInterpolation # Inplementation as a type class
     grid::Array
     vals::Array
   end
